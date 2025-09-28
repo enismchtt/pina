@@ -1,12 +1,11 @@
 ## run :
-docker-compose --profile dev up -d  // activate backend 
-// run frontend 
-npm install  // if not installed yet 
-npm start  
+-> docker-compose --profile dev up -d  
+-> npm install  
+-> npm start  
 
 ## Example Page :
 
-
+![loginpage](./images/example_loging_page.png)
 
 
 Full-stack web application for delivering food. 
