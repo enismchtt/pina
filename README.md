@@ -10,6 +10,9 @@
 
 
 Full-stack web application for delivering food. 
+- Frontend : React 
+- Backend : SpringBoot 
+- Database : PostgreSQL 
 
 
 ## System Modules for the App
