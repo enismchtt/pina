@@ -1,3 +1,4 @@
+# Pina (FullStack Web App for food delivery)
 ## run :
 -> docker-compose --profile dev up -d  
 -> npm install  
