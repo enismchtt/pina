@@ -1,0 +1,100 @@
+.unauth-container {
+    min-height: 100vh;
+    background: linear-gradient(180deg, #90EE90 0%, #ffffff 100%);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.unauth-header {
+    padding: 10px;
+    background-color: #008106;
+    margin: -20px -20px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.unauth-header h1 {
+    font-size: 2rem;
+    color: #ffffff;
+    margin: 0;
+    padding: 0 5px;
+    cursor: default;
+}
+
+.unauth-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 600px;
+    margin: 40px auto 0;
+    padding: 20px;
+}
+
+.unauth-welcome-section {
+    flex: 1;
+    max-width: 500px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.unauth-welcome-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: red;
+}
+
+.unauth-welcome-section h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.unauth-welcome-section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.unauth-go-back-button {
+    padding: 12px 25px;
+    background-color: yellowgreen;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 20px 8px 10px;
+    display: inline-block;
+}
+
+.unauth-go-back-button:hover {
+    background-color: #008640FF;
+}
+
+.unauth-go-login-button {
+    padding: 12px 25px;
+    background-color: #00C853;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 20px 10px 8px;
+    display: inline-block;
+}
+
+.unauth-go-login-button:hover {
+    background-color: #008640;
+}
+

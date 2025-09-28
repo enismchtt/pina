@@ -1,0 +1,109 @@
+services:
+  db:
+    image: 'postgres:latest'
+    container_name: local_pgdb
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+    volumes:
+      - local_pgdata:/var/lib/postgresql/data
+    networks:
+      - pina-network
+
+  # Development backend
+  backend:
+    image: maven:3.9-eclipse-temurin-23
+    container_name: pina-backend-dev
+    depends_on:
+      - db
+    command: sh -c "mvn spring-boot:run -Dspring-boot.run.jvmArguments='-Dspring.devtools.restart.enabled=true -Dspring.devtools.restart.poll-interval=1s -Dspring.devtools.restart.quiet-period=400ms'"
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/admin
+      SPRING_DATASOURCE_USERNAME: admin
+      SPRING_DATASOURCE_PASSWORD: admin
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_DEVTOOLS_REMOTE_SECRET: mysecret
+      SPRING_DEVTOOLS_RESTART_ENABLED: "true"
+      SPRING_DEVTOOLS_LIVERELOAD_ENABLED: "true"
+      WATCHPACK_POLLING: "true"
+
+    volumes:
+      - ./backend:/app:cached
+      - maven-cache:/root/.m2
+    working_dir: /app
+    networks:
+      - pina-network
+    profiles: ["dev", "default"]  # This makes it part of the default profile
+
+  # Production backend
+  backend-prod:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: pina-backend
+    restart: always
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/admin
+      SPRING_DATASOURCE_USERNAME: admin
+      SPRING_DATASOURCE_PASSWORD: admin
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    ports:
+      - "8080:8080"
+    networks:
+      - pina-network
+    profiles: ["prod"]  # This makes it part of the prod profile
+
+  # Development frontend
+  frontend:
+    image: node:20-alpine
+    container_name: pina-frontend-dev
+    depends_on:
+      - backend
+    command: sh -c "npm install && npm start"
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+      - WDS_SOCKET_PORT=0
+      - REACT_APP_API_URL=http://localhost:8080/api
+      - WATCHPACK_POLLING=true
+    volumes:
+      - ./frontend:/app
+      - node-modules:/app/node_modules
+    working_dir: /app
+    networks:
+      - pina-network
+    profiles: ["dev", "default"]  # This makes it part of the default profile
+
+  # Production frontend
+  frontend-prod:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: pina-frontend
+    restart: always
+    depends_on:
+      - backend-prod
+    ports:
+      - "3000:3000"
+    networks:
+      - pina-network
+    profiles: ["prod"]  # This makes it part of the prod profile
+
+volumes:
+  local_pgdata:
+  pgadmin-data:
+  maven-cache:
+  node-modules:
+
+networks:
+  pina-network:
+    driver: bridge

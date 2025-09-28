@@ -1,0 +1,74 @@
+.restaurant-profile {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
+}
+
+.restaurant-profile h2 {
+  text-align: center;
+  padding: 1rem;
+  background-color: #32cd32;
+  color: white;
+  border-radius: 8px 8px 0 0;
+  margin: -2rem -2rem 2rem;
+}
+
+.restaurant-profile form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.restaurant-profile label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: block;
+  color: #444;
+}
+
+.restaurant-profile input,
+.restaurant-profile textarea {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.restaurant-profile textarea {
+  resize: vertical;
+  grid-column: span 2;
+}
+
+.restaurant-profile .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.restaurant-profile-buttons button {
+  grid-column: span 2;
+  padding: 0.75rem;
+  background-color: #32cd32;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin: 20px 8px 10px;
+}
+.select-large {
+  font-size: 1.1rem;
+  padding: 0.6rem;
+}
+
+.restaurant-profile button:hover {
+  background-color: #008640;
+}

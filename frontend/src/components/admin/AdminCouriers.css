@@ -1,0 +1,63 @@
+.courier-table-wrapper {
+    padding: 2rem;
+    background-color: #fff;
+  }
+  
+  .courier-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-family: Arial, sans-serif;
+    font-size: 0.95rem;
+  }
+  
+  .courier-table th,
+  .courier-table td {
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .courier-table th {
+    background-color: #32CD32;
+    color: white;
+  }
+  
+  .ban-btn,
+  .unban-btn,
+  .approve-btn,
+  .reject-btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    min-width: 80px;
+    text-align: center;
+  }
+  
+  .ban-btn,
+  .reject-btn {
+    background-color: #ff4d4d;
+    color: white;
+  }
+  
+  .unban-btn,
+  .approve-btn {
+    background-color: #4CAF50;
+    color: white;
+  }
+  .details-btn {
+    background-color: #ccc;
+    color: #333;
+    border: none;
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .details-btn:hover {
+    background-color: #bbb;
+  }

@@ -1,0 +1,136 @@
+.admin-dashboard-top {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: sans-serif;
+}
+
+.top-navbar {
+  display: flex;
+  align-items: center;
+  gap: 2rem; 
+  padding: 1rem 2rem;
+  background-color: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  justify-content: flex-start;
+}
+
+.brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f5872b;
+}
+
+.top-nav-links {
+  display: flex;
+  gap: 1rem;
+ 
+  margin-left: 0;
+}
+
+.top-nav-links button {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 4px;
+  color: #333;
+}
+
+.top-nav-links button:hover {
+  background-color: #f2f2f2;
+}
+
+.divider {
+  height: 1px;
+  background-color: #ccc;
+  width: 100%;
+}
+
+.admin-main-content {
+  padding: 2rem;
+  overflow-x: auto;
+  flex-grow: 1;
+  background-color: #fff;
+}
+
+.empty-content {
+  text-align: center;
+  color: #888;
+  font-size: 1.2rem;
+  margin-top: 100px;
+}
+.dashboard-cards-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.dashboard-card {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.admin-dashboard {
+  max-width: 500px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.admin-dashboard h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.admin-form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-form label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #444;
+}
+
+.admin-form input {
+  padding: 0.7rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.admin-form button {
+  padding: 0.75rem;
+  background-color: #32cd32;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.admin-form button:hover {
+  background-color: #008640;
+}
